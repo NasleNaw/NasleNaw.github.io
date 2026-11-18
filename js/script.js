@@ -519,41 +519,54 @@ document.addEventListener("click", async (e) => {
 // ==================================
 // === Animation Icons ==============
 // ==================================
-lottie.loadAnimation({
-    container: document.getElementById("education-animation"),
-    renderer: "svg",
-    loop: true,
-    autoplay: true,
-    path: "../assets/icon/doodle-black-35-pencil-hover-circle.json"
-});
-lottie.loadAnimation({
-    container: document.getElementById("book-animation"),
-    renderer: "svg",
-    loop: true,
-    autoplay: true,
-    path: "../assets/icon/doodle-outline-112-book-bookmark-hover-pinch.json"
-});
-lottie.loadAnimation({
-    container: document.getElementById("facebook-animation"),
-    renderer: "svg",
-    loop: true,
-    autoplay: true,
-    path: "../assets/icon/wired-outline-2540-logo-facebook-hover-roll.json"
-});
-lottie.loadAnimation({
-    container: document.getElementById("click-animation"),
-    renderer: "svg",
-    loop: true,
-    autoplay: true,
-    path: "../assets/icon/click.json"
-});
-lottie.loadAnimation({
-    container: document.getElementById("load-animation"),
-    renderer: "svg",
-    loop: true,
-    autoplay: true,
-    path: "../assets/icon/Pie Loader Animation.json"
-});
+// ==================================
+// === Animation Icons ==============
+// ==================================
+
+if (typeof lottie !== "undefined") {
+
+    lottie.loadAnimation({
+        container: document.getElementById("education-animation"),
+        renderer: "svg",
+        loop: true,
+        autoplay: true,
+        path: "../assets/icon/doodle-black-35-pencil-hover-circle.json"
+    });
+
+    lottie.loadAnimation({
+        container: document.getElementById("book-animation"),
+        renderer: "svg",
+        loop: true,
+        autoplay: true,
+        path: "../assets/icon/doodle-outline-112-book-bookmark-hover-pinch.json"
+    });
+
+    lottie.loadAnimation({
+        container: document.getElementById("facebook-animation"),
+        renderer: "svg",
+        loop: true,
+        autoplay: true,
+        path: "../assets/icon/wired-outline-2540-logo-facebook-hover-roll.json"
+    });
+
+    lottie.loadAnimation({
+        container: document.getElementById("click-animation"),
+        renderer: "svg",
+        loop: true,
+        autoplay: true,
+        path: "../assets/icon/click.json"
+    });
+
+    lottie.loadAnimation({
+        container: document.getElementById("load-animation"),
+        renderer: "svg",
+        loop: true,
+        autoplay: true,
+        path: "../assets/icon/Pie Loader Animation.json"
+    });
+
+}
+
 // Share Nasle Naw
 const shareBtn = document.getElementById("shareBtn");
 shareBtn.addEventListener("click", async () => {
