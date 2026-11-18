@@ -568,3 +568,155 @@ shareBtn.addEventListener("click", async () => {
         console.log("اشتراک‌گذاری لغو شد یا با خطا مواجه شد:", error);
     }
 });
+/* =========================================================
+   Pages CMS — بارگذاری خودکار اخبار و اطلاعیه‌ها
+========================================================= */
+
+(() => {
+    const container = document.querySelector(".news-container");
+
+    if (!container) return;
+
+    const DATA_URL = "/assets/data/site-content.json";
+    const FALLBACK_IMAGE = "assets/images/کاور-خبر.avif";
+
+    // تبدیل تاریخ میلادی به تاریخ هجری شمسی
+    function formatDate(value) {
+        if (!value) return "";
+
+        const date = new Date(`${value}T12:00:00`);
+
+        if (Number.isNaN(date.getTime())) return value;
+
+        try {
+            return new Intl.DateTimeFormat("fa-AF-u-ca-persian", {
+                day: "numeric",
+                month: "long",
+                year: "numeric"
+            }).format(date);
+        } catch {
+            return value;
+        }
+    }
+
+    // ساخت کارت خبر یا اطلاعیه
+    function createCard(item) {
+        const card = document.createElement("div");
+        card.className = "news";
+
+        // تصویر
+        const cover = document.createElement("div");
+        cover.className = "news-cover";
+
+        const image = document.createElement("img");
+
+        image.src = item.image || FALLBACK_IMAGE;
+        image.alt = item.title || "";
+        image.loading = "lazy";
+        image.decoding = "async";
+
+        image.addEventListener("error", () => {
+            if (image.src !== new URL(FALLBACK_IMAGE, location.href).href) {
+                image.src = FALLBACK_IMAGE;
+            }
+        }, { once: true });
+
+        cover.appendChild(image);
+
+        // محتوای کارت
+        const content = document.createElement("div");
+        content.className = "news-txt";
+
+        const time = document.createElement("time");
+        time.dateTime = item.date || "";
+        time.textContent = formatDate(item.date);
+
+        const title = document.createElement("h1");
+        title.textContent = item.title || "";
+
+        const summary = document.createElement("p");
+        summary.textContent = item.summary || "";
+
+        content.append(time, title, summary);
+
+        // لینک بیشتر
+        const more = document.createElement("a");
+        more.className = "news-a";
+        more.textContent = "بیشتر ...";
+
+        if (item.source) {
+            more.href =
+                "https://github.com/NasleNaw/NasleNaw.github.io/blob/main/" +
+                item.source.split("/").map(encodeURIComponent).join("/");
+
+            more.target = "_blank";
+            more.rel = "noopener noreferrer";
+        } else {
+            more.href = "#";
+        }
+
+        // برچسب نوع مطلب
+        const label = document.createElement("small");
+
+        if (item.type === "announcement") {
+            const priorities = {
+                normal: "عادی",
+                important: "مهم",
+                urgent: "فوری"
+            };
+
+            label.textContent =
+                `اطلاعیه · ${priorities[item.priority] || "عادی"}`;
+        } else {
+            label.textContent = "خبر";
+        }
+
+        content.appendChild(label);
+        card.append(cover, content, more);
+
+        return card;
+    }
+
+    // دریافت اطلاعات از فایل JSON
+    fetch(DATA_URL, { cache: "no-cache" })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP Error: ${response.status}`);
+            }
+
+            return response.json();
+        })
+        .then(data => {
+            if (!Array.isArray(data.items)) {
+                throw new Error("ساختار فایل JSON معتبر نیست.");
+            }
+
+            const fragment = document.createDocumentFragment();
+
+            data.items.forEach(item => {
+                if (item && item.published === true) {
+                    fragment.appendChild(createCard(item));
+                }
+            });
+
+            if (fragment.childNodes.length === 0) {
+                const message = document.createElement("p");
+
+                message.textContent =
+                    "در حال حاضر خبر یا اطلاعیه‌ای برای نمایش وجود ندارد.";
+
+                container.replaceChildren(message);
+                return;
+            }
+
+            container.replaceChildren(fragment);
+        })
+        .catch(error => {
+            // در صورت بروز خطا، کارت‌های قبلی HTML حذف نمی‌شوند.
+            console.warn(
+                "خطا در دریافت اخبار و اطلاعیه‌ها:",
+                error
+            );
+        });
+
+})();
