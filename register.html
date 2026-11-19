@@ -8,7 +8,7 @@
   <meta name="description" content="شرایط پذیرش و فرم درخواست ثبت‌نام شاگردان جدید در لیسه عالی نسل نو.">
   <title>ثبت‌نام آنلاین | لیسه عالی نسل نو</title>
   <link href="css/style.css" rel="stylesheet" type="text/css">
-  <link href="./favicon.png" rel="icon" type="image/png" sizes="512x512">
+  <link href="./favicon.ico" rel="icon" type="image/png" sizes="512x512">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Estedad:wght@100..900&family=Questrial&display=swap" rel="stylesheet">
@@ -80,7 +80,8 @@
     </section>
 
     <div class="admission-wrap admission-layout">
-      <form class="admission-card" id="admissionForm">
+      <form class="admission-card" id="admissionForm" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="a404402b-7990-4798-9b03-0ba96747ade7">
         <section class="admission-section">
           <div class="section-heading"><span class="section-number">1</span><div><h2>اطلاعات شاگرد</h2><p>اطلاعات هویتی و تحصیلی دانش‌آموز</p></div></div>
           <div class="form-grid">
@@ -191,7 +192,7 @@
                     <h2 class="khandevane">لیسه عالی نسل نو</h2>
                     <p class="khandevane">دانش | فرهنگ | آینده</p>
                     <div class="social-icon">
-                        <a href="https://facebook.com/" target="_blank" class="social-link">
+                        <a href="https://www.facebook.com/share/18wwrtZAEU/" target="_blank" class="social-link">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--! Font Awesome Pro 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2026 Fonticons, Inc. --><path fill="currentColor" d="M240 363.3L240 576L356 576L356 363.3L442.5 363.3L460.5 265.5L356 265.5L356 230.9C356 179.2 376.3 159.4 428.7 159.4C445 159.4 458.1 159.8 465.7 160.6L465.7 71.9C451.4 68 416.4 64 396.2 64C289.3 64 240 114.5 240 223.4L240 265.5L174 265.5L174 363.3L240 363.3z"/></svg>
                         </a>
                         <a href="https://wa.me/0764003685" class="social-link">
@@ -221,7 +222,7 @@
                 <div class="nav-explore">
                     <div class="links-footer">
                         <h3 class="khandevane">نسل نو و شما</h3>
-                        <a href="register.html" class="normal-link">ثبت نام</a>
+                        <a href="index.html" class="normal-link">صفحه اصلی</a>
                         <a href="index.html#faq" class="normal-link">سوالات متداول</a>
                         <a href="index.html#contact" class="normal-link">تماس با اداره</a>
                         <a href="job.html" class="normal-link">استخدام معلمین</a>
@@ -229,7 +230,7 @@
                     </div>
                     <div class="links-footer">
                         <h3 class="khandevane">تحصیلی</h3>
-                        <a href="index.html" class="normal-link">صفحه اصلی</a>
+                        <a href="student-panel.html" class="normal-link">پنل شاگردان</a>
                         <a href="teacher-panel.html" class="normal-link">پنل استادان</a>
                         <a href="index.html#winter" class="normal-link">برنامه زمستانی</a>
                         <a href="index.html#programs" class="normal-link">برنامه آموزشی</a>
