@@ -5,7 +5,7 @@
 }
 @font-face {
     font-family: "w_parvaz";
-    src: url(./Parvaz.ttf) format(ttf);
+    src: url(Parvaz.woff2) format(woff2);
     font-display: swap;
 }
 .estedad {
