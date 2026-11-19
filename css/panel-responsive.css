@@ -1,0 +1,218 @@
+/* Student/teacher panel responsive fixes
+   Scoped to panel/table markup to avoid affecting the rest of the site.
+*/
+
+body {
+    min-width: 0;
+}
+
+main,
+main > section,
+main > article {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.banner {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 400px;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.img-banner {
+    width: min(400px, 38vw);
+    max-width: 100%;
+    height: clamp(260px, 32vw, 350px);
+    flex: 0 1 400px;
+}
+
+.txt-panel-banner {
+    width: auto;
+    min-width: 0;
+    flex: 1 1 420px;
+}
+
+.txt-panel-banner p {
+    max-width: 100%;
+    padding-inline: clamp(12px, 4vw, 100px);
+    box-sizing: border-box;
+}
+
+.ad-tabligh {
+    width: min(1080px, calc(100% - 32px));
+    max-width: 100%;
+    height: auto;
+    min-height: 150px;
+}
+
+.content-banner {
+    min-width: 0;
+}
+
+.content-banner h1,
+.content-banner span {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+}
+
+.sonoof {
+    width: min(1080px, calc(100% - 32px));
+    max-width: 100%;
+}
+
+.senf-select,
+.senf-plan,
+.w-plan,
+.plan-container,
+.exam-container,
+.exam-schedule {
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.plan-jadval,
+.exam-table-wrapper {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    -webkit-overflow-scrolling: touch;
+}
+
+.plan-jadval table,
+.exam-table {
+    table-layout: auto;
+}
+
+.amaade-nist {
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+}
+
+@media (max-width: 1000px) {
+    .banner {
+        min-height: 0;
+        padding: 24px;
+        gap: 24px;
+    }
+
+    .img-banner {
+        width: min(340px, 38vw);
+        height: clamp(240px, 34vw, 320px);
+        flex-basis: 340px;
+    }
+
+    .txt-panel-banner h1 {
+        font-size: clamp(26px, 4vw, 34px);
+    }
+
+    .txt-panel-banner p {
+        padding-inline: clamp(10px, 3vw, 30px);
+    }
+
+    .ad-tabligh {
+        align-items: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .banner {
+        flex-direction: column;
+        padding: 22px 18px;
+    }
+
+    .img-banner {
+        width: min(420px, 100%);
+        height: auto;
+        aspect-ratio: 8 / 7;
+        flex: none;
+    }
+
+    .txt-panel-banner {
+        width: 100%;
+        flex: none;
+    }
+
+    .txt-panel-banner h1 {
+        font-size: 27px;
+        padding-top: 8px;
+    }
+
+    .txt-panel-banner p {
+        font-size: 16px;
+        padding-inline: 8px;
+    }
+
+    .ad-tabligh {
+        width: calc(100% - 28px);
+        padding: 20px 14px;
+    }
+
+    .animation-banner {
+        width: 100%;
+        padding: 0;
+    }
+
+    .sonoof {
+        width: calc(100% - 28px);
+    }
+
+    .senf-select.shift {
+        margin-inline: auto;
+    }
+
+    .w-plan {
+        padding-inline: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner {
+        padding-inline: 12px;
+    }
+
+    .img-banner {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+    }
+
+    .txt-panel-banner h1 {
+        font-size: 23px;
+    }
+
+    .txt-panel-banner p {
+        font-size: 15px;
+        line-height: 1.9;
+    }
+
+    .ad-tabligh {
+        width: calc(100% - 24px);
+        padding-inline: 10px;
+    }
+
+    .content-banner h1 {
+        font-size: 21px;
+    }
+
+    .content-banner span {
+        font-size: 13px;
+    }
+
+    .sonoof {
+        width: calc(100% - 24px);
+    }
+
+    .w-plan {
+        padding-inline: 8px;
+    }
+
+    .plan-jadval table,
+    .exam-table {
+        font-size: 11px;
+    }
+}
