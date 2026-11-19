@@ -1390,6 +1390,89 @@ header {
         transition: none;
     }
 }
+/* Responsive - News Section Title */
+.news-cadr > .news-title {
+    width: min(1080px, calc(100% - 40px));
+    max-width: 1080px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.news-cadr > .news-title > h1 {
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    line-height: 1.8;
+}
+
+.news-cadr .news-channel,
+.news-cadr .social-icon {
+    flex-shrink: 0;
+}
+
+.news-cadr .social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+    gap: 12px;
+}
+
+.news-cadr .social-link-news {
+    flex-shrink: 0;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+    .news-cadr > .news-title {
+        width: calc(100% - 36px);
+        gap: 15px;
+    }
+
+    .news-cadr > .news-title > h1 {
+        font-size: 25px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 560px) {
+    .news-cadr > .news-title {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        width: calc(100% - 30px);
+    }
+
+    .news-cadr > .news-title > h1 {
+        width: 100%;
+        font-size: 23px;
+    }
+
+    .news-cadr .news-channel {
+        width: 100%;
+    }
+
+    .news-cadr .social-icon {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 14px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 360px) {
+    .news-cadr > .news-title {
+        width: calc(100% - 24px);
+    }
+
+    .news-cadr > .news-title > h1 {
+        font-size: 21px;
+    }
+}
 /*  ========================================
         About and Dastavards
     ========================================*/
