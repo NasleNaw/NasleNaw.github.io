@@ -526,14 +526,6 @@ document.addEventListener("click", async (e) => {
 if (typeof lottie !== "undefined") {
 
     lottie.loadAnimation({
-        container: document.getElementById("education-animation"),
-        renderer: "svg",
-        loop: true,
-        autoplay: true,
-        path: "../assets/icon/doodle-black-35-pencil-hover-circle.json"
-    });
-
-    lottie.loadAnimation({
         container: document.getElementById("book-animation"),
         renderer: "svg",
         loop: true,
@@ -547,22 +539,6 @@ if (typeof lottie !== "undefined") {
         loop: true,
         autoplay: true,
         path: "../assets/icon/wired-outline-2540-logo-facebook-hover-roll.json"
-    });
-
-    lottie.loadAnimation({
-        container: document.getElementById("click-animation"),
-        renderer: "svg",
-        loop: true,
-        autoplay: true,
-        path: "../assets/icon/click.json"
-    });
-
-    lottie.loadAnimation({
-        container: document.getElementById("load-animation"),
-        renderer: "svg",
-        loop: true,
-        autoplay: true,
-        path: "../assets/icon/Pie Loader Animation.json"
     });
 
 }
