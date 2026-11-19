@@ -7277,3 +7277,227 @@ hr {
         width: calc(100% - 20px);
     }
 }
+/* =========================================
+   1. Reviews - Block Layout
+========================================= */
+
+.rates {
+    display: block;
+    width: 100%;
+}
+
+.rate-container {
+    display: block;
+    width: min(1080px, calc(100% - 32px));
+    max-width: 1080px;
+    margin: 30px auto;
+}
+
+.rate,
+.rate-vip {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    box-sizing: border-box;
+}
+
+.rate + .rate {
+    margin-top: 20px;
+}
+
+.rate-vip {
+    margin: 20px auto 0;
+}
+
+.rate-txt {
+    height: auto;
+    line-height: 2;
+    overflow-wrap: anywhere;
+}
+
+.rate-txt blockquote {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+}
+
+.rate-info {
+    align-items: center;
+}
+
+.rate-information {
+    min-width: 0;
+}
+
+/* عنوان نظرات و امتیازات */
+.rates > .cheraNasleNaw {
+    display: block;
+    width: fit-content;
+    max-width: calc(100% - 32px);
+    margin: 0 auto 30px;
+    text-align: center;
+}
+
+.rates > .cheraNasleNaw span {
+    display: inline-block;
+    max-width: 100%;
+    line-height: 1.8;
+}
+
+/* =========================================
+   2. About - Share Button
+========================================= */
+
+.aboutKeys {
+    width: min(950px, calc(100% - 32px));
+    max-width: 100%;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+
+.aboutKeys > a {
+    flex: 1 1 220px;
+    min-width: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.aboutKeys button {
+    width: 100%;
+    max-width: 270px;
+    min-width: 0;
+    height: auto;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    line-height: 1.8;
+    box-sizing: border-box;
+}
+
+/* =========================================
+   3. Achievement Images - Before / After
+========================================= */
+
+.aksha-qatar {
+    position: relative;
+}
+
+.aksha-qatar::before,
+.aksha-qatar::after {
+    top: 0;
+    bottom: 0;
+    height: 100%;
+}
+
+.aksha-item {
+    height: 100%;
+}
+
+/* =========================================
+   4. Responsive Adjustments
+========================================= */
+
+@media (max-width: 768px) {
+
+    .rate-container {
+        width: calc(100% - 30px);
+        margin: 22px auto;
+    }
+
+    .rate,
+    .rate-vip {
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .rate-txt {
+        padding: 18px 25px;
+        font-size: 14px;
+    }
+
+    .stars {
+        padding: 5px 20px;
+        gap: 12px;
+    }
+
+    .rate-info {
+        padding: 10px 20px;
+        gap: 14px;
+    }
+
+    .rates > .cheraNasleNaw {
+        max-width: calc(100% - 30px);
+        margin-bottom: 25px;
+    }
+
+    .aboutKeys {
+        width: calc(100% - 32px);
+        gap: 12px;
+        margin: 45px auto 0;
+    }
+
+    .aboutKeys > a {
+        flex: 1 1 220px;
+    }
+
+    .aboutKeys button {
+        top: 0;
+        max-width: 100%;
+        font-size: 14px;
+        padding: 10px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .rate-container {
+        width: calc(100% - 24px);
+    }
+
+    .rate-txt {
+        padding: 15px 17px;
+        font-size: 13px;
+        line-height: 2.1;
+    }
+
+    .stars {
+        justify-content: flex-start;
+        padding: 5px 15px;
+    }
+
+    .star {
+        width: auto;
+        max-width: 100%;
+    }
+
+    .rate-info {
+        padding: 10px 15px;
+    }
+
+    .rates > .cheraNasleNaw {
+        max-width: calc(100% - 24px);
+        padding: 8px 16px;
+    }
+
+    .rates > .cheraNasleNaw span {
+        font-size: 14px;
+    }
+
+    .aboutKeys {
+        width: calc(100% - 28px);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        margin: 35px auto 0;
+    }
+
+    .aboutKeys > a {
+        width: 100%;
+        flex: 1 1 auto;
+    }
+
+    .aboutKeys button {
+        width: 100%;
+        max-width: 100%;
+        font-size: 14px;
+    }
+}
