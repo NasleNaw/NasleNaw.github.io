@@ -38,14 +38,18 @@ def strip_markdown(value):
     return text.strip()
 
 
+def normalize_importance(value):
+    """Normalize legacy/high importance values for website display."""
+    importance = str(value or "عادی").strip()
+
+    if importance.casefold() in {"زیاد", "high"}:
+        return "مهم"
+
+    return importance
+
+
 # خواندن هر خبر یا اطلاعیه
 def read_post(path, kind):
-importance = str(
-    metadata.get("importance") or "عادی"
-).strip()
-
-if importance == "زیاد":
-    importance = "مهم"
     raw = path.read_text(encoding="utf-8-sig")
 
     if not raw.startswith("---"):
@@ -76,71 +80,35 @@ if importance == "زیاد":
     summary = strip_markdown(summary)
 
     return {
-        "importance": importance,
-        "category": str(
-    metadata.get("category") or ""
-).strip(),
-
-"importance": str(
-    metadata.get("importance") or "عادی"
-).strip(),
-
-"link": str(
-    metadata.get("link") or ""
-).strip(),
-        "type": kind,
-
-        "title": str(
-            metadata.get("title") or ""
-        ).strip(),
-
-        "date": to_iso(
-            metadata.get("date")
-        ),
-
+        "title": str(metadata.get("title") or "").strip(),
+        "date": to_iso(metadata.get("date")),
         "summary": summary,
-
-        "image": str(
-            metadata.get("image") or ""
-        ).strip(),
-
-        "priority": str(
-            metadata.get("priority") or "normal"
-        ),
-
+        "image": str(metadata.get("image") or "").strip(),
+        "category": str(metadata.get("category") or "").strip(),
+        "importance": normalize_importance(metadata.get("importance")),
+        "link": str(metadata.get("link") or "").strip(),
+        "type": kind,
+        "priority": str(metadata.get("priority") or "normal"),
         "published": True,
-
-        "body": str(
-            metadata.get("body") or body
-        ) if kind == "news" else "",
-
-        "source": path.relative_to(ROOT).as_posix()
+        "body": str(metadata.get("body") or body) if kind == "news" else "",
+        "source": path.relative_to(ROOT).as_posix(),
     }
 
 
 # ساخت فایل JSON
 def main():
-
     items = []
 
     collections = [
-        (
-            ROOT / "content" / "news",
-            "news"
-        ),
-        (
-            ROOT / "content" / "announcements",
-            "announcement"
-        )
+        (ROOT / "content" / "news", "news"),
+        (ROOT / "content" / "announcements", "announcement"),
     ]
 
     for folder, kind in collections:
-
         if not folder.exists():
             continue
 
         for path in folder.glob("*.md"):
-
             try:
                 item = read_post(path, kind)
 
@@ -148,37 +116,24 @@ def main():
                     items.append(item)
 
             except Exception as error:
-
                 print(
                     f"خطا در خواندن {path}: {error}",
-                    file=sys.stderr
+                    file=sys.stderr,
                 )
 
-    # مرتب‌سازی از جدیدترین به قدیمی‌ترین
-    items.sort(
-        key=lambda item: item["date"],
-        reverse=True
-    )
+    # مرتب‌سازی از جدیدترین به قدیمی‌ترین (تاریخ ISO)
+    items.sort(key=lambda item: item["date"], reverse=True)
 
     # ایجاد پوشه خروجی
-    OUTPUT.parent.mkdir(
-        parents=True,
-        exist_ok=True
-    )
+    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
 
     # ذخیره اطلاعات
     OUTPUT.write_text(
-        json.dumps(
-            {"items": items},
-            ensure_ascii=False,
-            indent=2
-        ) + "\n",
-        encoding="utf-8"
+        json.dumps({"items": items}, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
     )
 
-    print(
-        f"Successfully generated {len(items)} published posts."
-    )
+    print(f"Successfully generated {len(items)} published posts.")
 
 
 if __name__ == "__main__":
