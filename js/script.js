@@ -871,17 +871,20 @@ if (typeof lottie !== "undefined") {
 
         metadata.appendChild(time);
 
-        if (item.category) {
-            metadata.appendChild(
-                createBadge(item.category)
-            );
-        }
+        const category = item.category || "";
+const importance = item.importance || "";
 
-        if (item.importance) {
-            metadata.appendChild(
-                createBadge(item.importance)
-            );
-        }
+if (category) {
+    metadata.appendChild(
+        createBadge(category, "category")
+    );
+}
+
+if (importance) {
+    metadata.appendChild(
+        createBadge(importance, "importance")
+    );
+}
 
         // عنوان
         const title = document.createElement("h2");
