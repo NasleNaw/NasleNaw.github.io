@@ -772,18 +772,51 @@ if (typeof lottie !== "undefined") {
 
     // تاریخ هجری شمسی افغانستان
     function formatDate(value) {
-        if (!value) return "";
+    if (!value) return "";
 
-        const date = new Date(`${value}T12:00:00`);
+    const date = new Date(`${value}T12:00:00+04:30`);
 
-        if (Number.isNaN(date.getTime())) return "";
+    if (Number.isNaN(date.getTime())) return "";
 
-        return new Intl.DateTimeFormat("fa-AF-u-ca-persian", {
+    const parts = new Intl.DateTimeFormat(
+        "en-US-u-ca-persian-nu-latn",
+        {
             day: "numeric",
-            month: "long",
-            year: "numeric"
-        }).format(date);
-    }
+            month: "numeric",
+            year: "numeric",
+            timeZone: "Asia/Kabul"
+        }
+    ).formatToParts(date);
+
+    const values = {};
+
+    parts.forEach(part => {
+        values[part.type] = part.value;
+    });
+
+    const months = [
+        "حمل",
+        "ثور",
+        "جوزا",
+        "سرطان",
+        "اسد",
+        "سنبله",
+        "میزان",
+        "عقرب",
+        "قوس",
+        "جدی",
+        "دلو",
+        "حوت"
+    ];
+
+    const monthIndex = Number(values.month) - 1;
+
+    if (!months[monthIndex]) return "";
+
+    const numbers = new Intl.NumberFormat("fa-AF");
+
+    return `${numbers.format(Number(values.day))} ${months[monthIndex]} ${numbers.format(Number(values.year))}`;
+}
 
     // محدودیت توضیحات
     function formatSummary(value) {
