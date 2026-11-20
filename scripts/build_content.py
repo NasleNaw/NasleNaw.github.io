@@ -40,7 +40,12 @@ def strip_markdown(value):
 
 # خواندن هر خبر یا اطلاعیه
 def read_post(path, kind):
+importance = str(
+    metadata.get("importance") or "عادی"
+).strip()
 
+if importance == "زیاد":
+    importance = "مهم"
     raw = path.read_text(encoding="utf-8-sig")
 
     if not raw.startswith("---"):
@@ -71,6 +76,7 @@ def read_post(path, kind):
     summary = strip_markdown(summary)
 
     return {
+        "importance": importance,
         "category": str(
     metadata.get("category") or ""
 ).strip(),
