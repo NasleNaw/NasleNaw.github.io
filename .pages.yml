@@ -51,8 +51,8 @@ content:
         type: text
         required: true
         options:
-          maxlength: 100
-        description: حداکثر ۱۰۰ کاراکتر
+          maxlength: 200
+        description: حداکثر ۲۰۰ کاراکتر
 
       # تاریخ انتشار
       - name: date
