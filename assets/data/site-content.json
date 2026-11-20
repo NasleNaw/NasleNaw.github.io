@@ -1,15 +1,23 @@
 {
-  "items": [
-    {
-      "type": "news",
-      "title": "وب‌سایت لیسه عالی نسل نو منتشر شد!‌",
-      "date": "2026-11-18",
-      "summary": "وب‌سایت لیسه عالی نسل نو هم‌اکنون از طریق گوگل نیز دردسترس است. با جستجو لیسه عالی نسل نو می‌توانید به سایت دسترسی یابید.",
-      "image": "/assets/uploads/lwgw-mktb.avif",
-      "priority": "normal",
-      "published": true,
-      "body": "",
-      "source": "content/news/2026-11-18-wbsayt-lysh-aaly-nsl-nw-mntshr-shd.md"
-    }
-  ]
+    "items": [
+        {
+            "id": "news-001",
+            "type": "news",
+            "published": true,
+
+            "title": "وب‌سایت لیسه عالی نسل نو منتشر شد!",
+
+            "summary": "دانش‌آموزان و خانواده‌ها از این پس می‌توانند از طریق وب‌سایت لیسه عالی نسل نو، به برنامه‌های درسی دسترسی یابند.",
+
+            "image": "assets/icon/لوگو-مکتب.avif",
+
+            "date": "1405-08-27",
+
+            "category": "نسل نو",
+
+            "importance": "زیاد",
+
+            "link": "https://NasleNaw.github.io"
+        }
+    ]
 }
