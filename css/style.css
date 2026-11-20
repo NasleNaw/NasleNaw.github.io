@@ -7461,3 +7461,97 @@ hr {
         font-size: 14px;
     }
 }
+/* =========================================
+   NEWS CMS — METADATA & CARDS
+========================================= */
+
+.naslenaw-home .news-metadata {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 7px;
+
+    min-width: 0;
+    margin-bottom: 12px;
+}
+
+.naslenaw-home .news-metadata time {
+    color: var(--nn-muted);
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.naslenaw-home .news-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    max-width: 100%;
+    padding: 4px 9px;
+
+    border-radius: 7px;
+
+    background: var(--gr);
+    color: #fff;
+
+    font-size: 10px;
+    font-weight: 650;
+
+    white-space: nowrap;
+}
+
+.naslenaw-home .news-txt {
+    min-width: 0;
+    flex: 1;
+}
+
+.naslenaw-home .news-txt h2 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+
+    overflow: hidden;
+
+    margin-bottom: 8px;
+
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
+.naslenaw-home .news-txt p {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+
+    overflow: hidden;
+
+    min-height: 0;
+    margin: 0;
+
+    line-height: 1.9;
+    overflow-wrap: anywhere;
+}
+
+.naslenaw-home .news-a[aria-disabled="true"] {
+    opacity: .45;
+    pointer-events: none;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .naslenaw-home .news-metadata {
+        gap: 6px;
+    }
+
+    .naslenaw-home .news-badge {
+        padding: 4px 7px;
+        font-size: 9px;
+    }
+
+    .naslenaw-home .news-metadata time {
+        font-size: 11px;
+    }
+
+}
