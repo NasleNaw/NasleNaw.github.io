@@ -67,7 +67,6 @@ content:
         required: true
         options:
           values:
-          - نسل نو
             - آموزشی
             - فرهنگی
             - ورزشی
