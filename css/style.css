@@ -3183,7 +3183,7 @@ header {
         height: 40px;
         font-size: 27px;
     }
-
+}
 /* Small Mobile Devices */
 @media (max-width: 380px) {
     .gallery {
