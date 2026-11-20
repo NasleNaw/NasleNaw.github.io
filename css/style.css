@@ -3116,7 +3116,7 @@ header {
 @media (max-width: 600px) {
     .gallery-body h1 {
         font-size: 21px;
-        margin: 5px 10px -10px;
+        margin: 5px 10px;
     }
 
     .gallery {
