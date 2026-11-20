@@ -84,8 +84,8 @@ content:
         options:
           values:
             - عادی
-            - متوسط
-            - زیاد
+            - مهم
+            - فوری
 
       # لینک پست فیسبوک
       - name: link
