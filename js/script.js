@@ -787,14 +787,8 @@ if (typeof lottie !== "undefined") {
 
     // محدودیت توضیحات
     function formatSummary(value) {
-        const summary = String(value || "").trim();
-
-        if (summary.length > 70) {
-            return summary.slice(0, 70).trimEnd() + "…";
-        }
-
-        return summary;
-    }
+    return String(value || "").trim().slice(0, 250);
+}
 
     // ساخت برچسب
     function createBadge(text) {
