@@ -6,6 +6,6 @@ summary: دانش‌آموزان و خانواده‌ها از این پس می�
 date: 2026-11-18
 category: نسل نو
 importance: زیاد
-link: https://NasleNaw.github.io/students-panel.hml
+link: https://www.facebook.com/share/18wwrtZAEU/
 published: true
 ---
