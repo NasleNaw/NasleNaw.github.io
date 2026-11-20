@@ -824,14 +824,14 @@ if (typeof lottie !== "undefined") {
 }
 
     // ساخت برچسب
-    function createBadge(text) {
-        const badge = document.createElement("span");
+    function createBadge(text, type) {
+    const badge = document.createElement("span");
 
-        badge.className = "news-badge";
-        badge.textContent = text;
+    badge.className = `news-badge news-badge-${type}`;
+    badge.textContent = text;
 
-        return badge;
-    }
+    return badge;
+}
 
     // ساخت کارت خبری
     function createCard(item) {
