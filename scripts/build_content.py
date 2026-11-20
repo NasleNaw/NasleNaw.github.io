@@ -71,6 +71,17 @@ def read_post(path, kind):
     summary = strip_markdown(summary)
 
     return {
+        "category": str(
+    metadata.get("category") or ""
+).strip(),
+
+"importance": str(
+    metadata.get("importance") or "عادی"
+).strip(),
+
+"link": str(
+    metadata.get("link") or ""
+).strip(),
         "type": kind,
 
         "title": str(
