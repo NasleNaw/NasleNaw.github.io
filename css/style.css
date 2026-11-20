@@ -7555,3 +7555,82 @@ hr {
     }
 
 }
+/* =========================================
+   NEWS METADATA & BADGES
+========================================= */
+
+.news-metadata {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-bottom: 10px;
+    direction: rtl;
+}
+
+.news-metadata time {
+    color: var(--tx-sec);
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.news-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 3px 9px;
+
+    border: 1px solid var(--gr);
+    border-radius: 6px;
+
+    background: transparent;
+    color: var(--gr);
+
+    font-size: 10px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.news-txt h2 {
+    color: var(--bg-d);
+    font-size: 17px;
+    line-height: 1.7;
+    padding-top: 5px;
+}
+
+.news-txt p {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+
+    overflow: hidden;
+    overflow-wrap: anywhere;
+
+    color: var(--bg-d);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+@media (max-width: 576px) {
+    .news-metadata {
+        gap: 5px;
+    }
+
+    .news-metadata time {
+        font-size: 11px;
+    }
+
+    .news-badge {
+        font-size: 9px;
+        padding: 3px 7px;
+    }
+
+    .news-txt h2 {
+        font-size: 15px;
+    }
+
+    .news-txt p {
+        font-size: 12px;
+    }
+}
