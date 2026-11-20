@@ -29,76 +29,72 @@ content:
         order: desc
 
     fields:
+
+      # عنوان
       - name: title
         label: عنوان خبر
         type: string
         required: true
+        options:
+          maxlength: 100
 
+      # تصویر
       - name: image
         label: تصویر خبر
         type: image
         options:
           media: images
 
+      # توضیحات کوتاه
       - name: summary
-        label: خلاصه خبر
+        label: توضیحات کوتاه
         type: text
+        required: true
+        options:
+          maxlength: 70
+        description: حداکثر ۷۰ کاراکتر
 
+      # تاریخ انتشار
       - name: date
         label: تاریخ انتشار
         type: date
         required: true
 
-      - name: body
-        label: متن کامل خبر
-        type: rich-text
-
-      - name: published
-        label: انتشار خبر
-        type: boolean
-
-  - name: announcements
-    label: اطلاعیه‌ها
-    type: collection
-    path: content/announcements
-    format: yaml-frontmatter
-    filename: "{year}-{month}-{day}-{primary}.md"
-
-    view:
-      primary: title
-      sort: date
-      default:
-        sort: date
-        order: desc
-
-    fields:
-      - name: title
-        label: عنوان اطلاعیه
-        type: string
-        required: true
-
-      - name: date
-        label: تاریخ انتشار
-        type: date
-        required: true
-
-      - name: summary
-        label: متن اطلاعیه
-        type: text
-        required: true
-
-      - name: priority
-        label: اهمیت اطلاعیه
+      # دسته‌بندی
+      - name: category
+        label: دسته‌بندی
         type: select
+        required: true
         options:
           values:
-            - label: عادی
-              value: normal
-            - label: مهم
-              value: important
-            - label: فوری
-              value: urgent
+          - نسل نو
+            - آموزشی
+            - فرهنگی
+            - ورزشی
+            - علمی
+            - مسابقات
+            - فعالیت شاگردان
+            - سایر
 
+      # میزان اهمیت
+      - name: importance
+        label: میزان اهمیت
+        type: select
+        required: true
+        options:
+          values:
+            - عادی
+            - متوسط
+            - زیاد
+
+      # لینک پست فیسبوک
+      - name: link
+        label: لینک پست فیسبوک
+        type: string
+        required: true
+        description: لینک مستقیم پست منتشرشده در فیسبوک
+
+      # وضعیت انتشار
       - name: published
-        label: انتشار اطلاعیه
+        label: انتشار خبر
         type: boolean
